@@ -2,11 +2,11 @@ let now = new Date();
 let hours = now.getHours();
 let minutes = now.getMinutes();
 
-if (hours < 0) {
+if (hours < 10) {
   hours = `0${hours}`;
 }
 
-if (minutes < 0) {
+if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 
@@ -52,11 +52,18 @@ function showTemperature(response) {
   let secondTemperature = document.querySelector(".temperature");
   let minimumTemperature = document.querySelector("#min-temp");
   let feelTemp = document.querySelector("#feels-like");
+  let windSpeed = document.querySelector("#wind-speed");
+  let weatherIcon = document.querySelector("#icon");
   description.innerHTML = `${response.data.weather[0].description}`;
   h1.innerHTML = Math.round(`${response.data.main.temp}`);
   secondTemperature.innerHTML = Math.round(`${response.data.main.temp_max}`);
   minimumTemperature.innerHTML = Math.round(`${response.data.main.temp_min}`);
   feelTemp.innerHTML = Math.round(`${response.data.main.feels_like}`);
+  windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 //function convertToFahrenheit(event) {
@@ -77,10 +84,6 @@ function showTemperature(response) {
 //let celsius = document.querySelector("#celsius-unit");
 //celsius.addEventListener("click", convertToCelsius);
 
-//function showPosition(position) {
-
-//}
-
 function showWeather(response) {
   let h1 = document.querySelector("h1");
   let secondTemperature = document.querySelector(".temperature");
@@ -88,12 +91,19 @@ function showWeather(response) {
   let feelTemp = document.querySelector("#feels-like");
   let cityName = document.querySelector("#city");
   let description = document.querySelector(".fair");
+  let windSpeed = document.querySelector("#wind-speed");
+  let weatherIcon = document.querySelector("#icon");
   h1.innerHTML = Math.round(`${response.data.main.temp}`);
   secondTemperature.innerHTML = Math.round(`${response.data.main.temp_max}`);
   minimumTemperature.innerHTML = Math.round(`${response.data.main.temp_min}`);
   feelTemp.innerHTML = Math.round(`${response.data.main.feels_like}`);
   cityName.innerHTML = `${response.data.name}`;
   description.innerHTML = `${response.data.weather[0].description}`;
+  windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function showPosition(position) {
