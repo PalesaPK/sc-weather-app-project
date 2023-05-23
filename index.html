@@ -21,53 +21,49 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <form id="search-form">
-      <div class="row">
-        <div class="col-8">
-          <input
-            id="city-search"
-            type="search"
-            placeholder="Other locations..."
-            autofocus
-            autocomplete="off"
-            class="form-control"
-          />
-        </div>
-        <div class="col-1">
-          <input type="submit" value="🔍" class="search" />
-        </div>
-        <div class="col-1">
-          <button id="currentLocation">Current</button>
-        </div>
-      </div>
-    </form>
-    <br />
-    <div class="row">
-      <div class="col-6">
-        <span><h1>26</h1></span>
-        <span class="units">
-          <a id="celsius-unit" href="http://#">°C</a> |
-          <a id="fahrenheit-unit" href="http://#">°F</a>
-        </span>
-        <p class="fair">Fair</p>
-
-        <span class="city" id="city">Johannesburg</span>
-        <span>📍</span> <br />
-        <span class="temperature">26</span><span class="degree-symbol">°</span>
-        <span>/</span>
-        <span id="min-temp">10</span><span class="degree-symbol">°</span>
-        <span>Feels like</span>
-        <span id="feels-like">26</span><span class="degree-symbol">°</span
-        ><br />
-        <span class="wind">Wind: </span><span id="wind-speed"></span
-        ><span class="windSpeedUnit"> km/h</span>
-        <div id="time">Tuesday 21:28</div>
-      </div>
-      <div class="col-6">
-        <img id="icon" src="" />
-      </div>
-    </div>
     <div class="container">
+      <form id="search-form">
+        <div class="row">
+          <div class="col-8">
+            <input
+              id="city-search"
+              type="search"
+              placeholder="Other locations..."
+              autofocus
+              autocomplete="off"
+              class="form-control"
+            />
+          </div>
+          <div class="col-1">
+            <input type="submit" value="🔍" class="search" />
+          </div>
+          <div class="col-1">
+            <button id="currentLocation">Current</button>
+          </div>
+        </div>
+      </form>
+      <br />
+      <div class="row">
+        <div class="col-6">
+          <span><h1>26</h1></span>
+          <span class="units">
+            <a id="celsius-unit" href="http://#">°C</a> |
+            <a id="fahrenheit-unit" href="http://#">°F</a>
+          </span>
+          <p id="description">Fair</p>
+
+          <span class="city" id="city">Johannesburg</span>
+          <span>📍</span>
+          <br />
+          <br />
+          <span class="wind">Wind: </span><span id="wind-speed"></span
+          ><span class="windSpeedUnit">6 km/h</span>
+          <div id="time">Tuesday 21:28</div>
+        </div>
+        <div class="col-6">
+          <img id="icon" src="images/sun.jpg" />
+        </div>
+      </div>
       <div class="row prediction">
         <div class="col-4">
           <p>
@@ -102,7 +98,6 @@
         </div>
       </div>
     </div>
-    <br />
     <span class="footer"
       >This project was coded by Palesa Kgomari and is
       <a href="https://github.com/PalesaPK/weather-app-project" target="_blank"

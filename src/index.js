@@ -48,17 +48,14 @@ form.addEventListener("submit", searchCity);
 
 function showTemperature(response) {
   let h1 = document.querySelector("h1");
-  let description = document.querySelector(".fair");
-  let secondTemperature = document.querySelector(".temperature");
-  let minimumTemperature = document.querySelector("#min-temp");
-  let feelTemp = document.querySelector("#feels-like");
+  let description = document.querySelector("#description");
   let windSpeed = document.querySelector("#wind-speed");
   let weatherIcon = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
   description.innerHTML = `${response.data.weather[0].description}`;
-  h1.innerHTML = Math.round(`${response.data.main.temp}`);
-  secondTemperature.innerHTML = Math.round(`${response.data.main.temp_max}`);
-  minimumTemperature.innerHTML = Math.round(`${response.data.main.temp_min}`);
-  feelTemp.innerHTML = Math.round(`${response.data.main.feels_like}`);
+  h1.innerHTML = Math.round(celsiusTemperature);
   windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
   weatherIcon.setAttribute(
     "src",
@@ -66,37 +63,16 @@ function showTemperature(response) {
   );
 }
 
-//function convertToFahrenheit(event) {
-// event.preventDefault();
-// let h1 = document.querySelector("h1");
-//h1.innerHTML = `79`;
-//}
-
-//let fahrenheit = document.querySelector("#fahrenheit-unit");
-//fahrenheit.addEventListener("click", convertToFahrenheit);
-
-//function convertToCelsius(event) {
-//event.preventDefault();
-//let h1 = document.querySelector("h1");
-//h1.innerHTML = `26`;
-//}
-
-//let celsius = document.querySelector("#celsius-unit");
-//celsius.addEventListener("click", convertToCelsius);
-
 function showWeather(response) {
   let h1 = document.querySelector("h1");
-  let secondTemperature = document.querySelector(".temperature");
-  let minimumTemperature = document.querySelector("#min-temp");
-  let feelTemp = document.querySelector("#feels-like");
   let cityName = document.querySelector("#city");
-  let description = document.querySelector(".fair");
+  let description = document.querySelector("#description");
   let windSpeed = document.querySelector("#wind-speed");
   let weatherIcon = document.querySelector("#icon");
-  h1.innerHTML = Math.round(`${response.data.main.temp}`);
-  secondTemperature.innerHTML = Math.round(`${response.data.main.temp_max}`);
-  minimumTemperature.innerHTML = Math.round(`${response.data.main.temp_min}`);
-  feelTemp.innerHTML = Math.round(`${response.data.main.feels_like}`);
+
+  celsiusTemperature = response.data.main.temp;
+
+  h1.innerHTML = Math.round(celsiusTemperature);
   cityName.innerHTML = `${response.data.name}`;
   description.innerHTML = `${response.data.weather[0].description}`;
   windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
@@ -121,3 +97,26 @@ function showCurrentLocation(event) {
 
 let button = document.querySelector("#currentLocation");
 button.addEventListener("click", showCurrentLocation);
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let h1 = document.querySelector("h1");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  h1.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheit = document.querySelector("#fahrenheit-unit");
+fahrenheit.addEventListener("click", convertToFahrenheit);
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let h1 = document.querySelector("h1");
+  h1.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsius = document.querySelector("#celsius-unit");
+celsius.addEventListener("click", convertToCelsius);
+
+
