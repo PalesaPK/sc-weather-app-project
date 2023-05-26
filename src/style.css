@@ -3,7 +3,7 @@ h1 {
   font-weight: 900;
 }
 
-img {
+#icon {
   width: 250px;
   height: 100%;
   object-fit: cover;
@@ -79,13 +79,9 @@ img {
 }
 
 .prediction {
-  padding-top: 20px;
-  padding-left: 10px;
-  border: 1px solid #5fc9f3;
-  border-radius: 20px;
   font-weight: lighter 300;
   font-family: "Lato", sans-serif;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .degree-symbol {
