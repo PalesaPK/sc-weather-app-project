@@ -24,12 +24,11 @@
     <div class="container">
       <form id="search-form">
         <div class="row">
-          <div class="col-8">
+          <div class="col-7">
             <input
               id="city-search"
               type="search"
               placeholder="Enter city"
-              autofocus
               autocomplete="off"
               class="form-control"
             />
@@ -47,11 +46,9 @@
         <div class="col-6">
           <span><h1></h1></span>
           <span class="units">°C</span>
-          <p id="description"></p>
+          <div><span class="city" id="city"></span> <span>📍</span></div>
 
-          <span class="city" id="city"></span>
-          <span>📍</span>
-          <br />
+          <div id="description"></div>
           <br />
           <span class="wind">Wind: </span><span id="wind-speed"></span
           ><span class="windSpeedUnit"> m/s</span>

@@ -1,59 +1,62 @@
-h1 {
+body {
   font-family: "Lato", sans-serif;
+}
+
+h1 {
   font-weight: 900;
 }
 
 #icon {
-  width: 250px;
-  height: 100%;
+  width: 240px;
+  height: 105%;
   object-fit: cover;
 }
 
 #description {
-  font-weight: 700;
-  font-family: "Lato", sans-serif;
+  font-weight: 300;
   text-transform: capitalize;
 }
 
 #time {
   font-weight: 600;
-  font-family: "Lato", sans-serif;
-  margin-bottom: 30px;
-}
-
-#celsius-unit,
-#fahrenheit-unit {
-  text-decoration: none;
 }
 
 #currentLocation {
   border-radius: 20px;
-  border: 1px solid #5fc9f3;
-  background-color: white;
+  color: white;
+  border: 1px solid rgb(135, 2, 35);
+  background-color: rgb(251, 32, 86);
   padding: 10px;
   margin: 10px 30px;
-  font-weight: lighter 300;
-  font-family: "Lato", sans-serif;
+  font-weight: 600;
 }
 
 .container {
-  border: 1px solid #5fc9f3;
-  border-radius: 20px;
+  border: 1px solid rgb(135, 2, 35);
+  border-radius: 50px;
   margin: 10px 30px 10px 30px;
   padding: 20px 30px;
   width: max-content;
+  background: radial-gradient(
+    circle at 50.4% 50.5%,
+    rgb(251, 32, 86) 0%,
+    rgb(135, 2, 35) 90%
+  );
+  color: white;
 }
 
 .col-6 {
   height: 190px;
   margin-bottom: 20px;
+  width: 46%;
 }
 
 .form-control {
-  border-radius: 20px;
+  border-radius: 50px;
   padding: 10px;
   margin: 10px;
-  border-color: #5fc9f3;
+  border-color: rgb(135, 2, 35);
+  background: rgb(251, 32, 86);
 }
 
 .search {
@@ -61,43 +64,38 @@ h1 {
   padding: 10px;
   width: 50px;
   border-radius: 20px;
-  border: 1px solid #5fc9f3;
-  background-color: white;
+  border: 1px solid rgb(135, 2, 35);
+  background-color: rgb(251, 32, 86);
 }
 
 .city {
-  font-family: "Lato", sans-serif;
   font-weight: 600;
+  font-size: 20px;
 }
 
 .units {
   position: relative;
   top: -54px;
   right: -54px;
-  font-family: "Lato", sans-serif;
   font-weight: 900;
 }
 
 .prediction {
   font-weight: lighter 300;
-  font-family: "Lato", sans-serif;
   margin-top: 20px;
-}
-
-.degree-symbol {
-  font-weight: lighter 300;
-  font-family: "Lato", sans-serif;
 }
 
 .wind,
 .windSpeedUnit {
   font-weight: lighter 300;
-  font-family: "Lato", sans-serif;
 }
 
 .footer {
   font-weight: lighter 300;
-  font-family: "Lato", sans-serif;
   font-size: 12px;
   margin-left: 30px;
+}
+
+.forecast-max-temp {
+  font-weight: 700;
 }
