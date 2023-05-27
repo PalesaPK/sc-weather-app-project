@@ -25,6 +25,16 @@ let day = weekDays[now.getDay()];
 let currentTime = document.querySelector("#time");
 currentTime.innerHTML = `${day} ${hours}:${minutes}`;
 
+function defaultLanding() {
+  let apiKey = "311f1f45fee82242ab4086372ab360f5";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=johannesburg&appid=${apiKey}&units=metric`;
+
+  let defaultCity = document.querySelector("#city");
+  defaultCity.innerHTML = `Johannesburg`;
+
+  axios.get(apiUrl).then(showTemperature);
+}
+
 function searchCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#city-search");
@@ -70,10 +80,10 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   forecastWeather.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 4) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
+        `<div class="col-3">
            <div class="forecast-day">${formatDay(forecastDay.dt)}</div> 
             <img
               src="https://openweathermap.org/img/wn/${
@@ -114,7 +124,7 @@ function showTemperature(response) {
 
   description.innerHTML = `${response.data.weather[0].description}`;
   h1.innerHTML = Math.round(celsiusTemperature);
-  windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
   weatherIcon.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -135,11 +145,13 @@ function showWeather(response) {
   h1.innerHTML = Math.round(celsiusTemperature);
   cityName.innerHTML = `${response.data.name}`;
   description.innerHTML = `${response.data.weather[0].description}`;
-  windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
   weatherIcon.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -157,3 +169,5 @@ function showCurrentLocation(event) {
 
 let button = document.querySelector("#currentLocation");
 button.addEventListener("click", showCurrentLocation);
+
+defaultLanding();
