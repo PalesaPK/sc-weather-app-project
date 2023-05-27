@@ -157,24 +157,3 @@ function showCurrentLocation(event) {
 
 let button = document.querySelector("#currentLocation");
 button.addEventListener("click", showCurrentLocation);
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let h1 = document.querySelector("h1");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  h1.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheit = document.querySelector("#fahrenheit-unit");
-fahrenheit.addEventListener("click", convertToFahrenheit);
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsius = document.querySelector("#celsius-unit");
-celsius.addEventListener("click", convertToCelsius);
